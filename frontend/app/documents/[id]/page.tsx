@@ -183,18 +183,12 @@ export default function BatchDetailPage({
                         <div className="space-y-2">
                           <p className="text-sm font-semibold">Options:</p>
                           {gptData.options.map((choice, choiceIndex) => {
-                            const choiceLetter = String.fromCharCode(
-                              65 + choiceIndex,
-                            );
                             return (
                               <div
                                 key={choiceIndex}
                                 className="rounded-lg border bg-gray-50 p-3"
                               >
                                 <div className="flex items-center gap-2">
-                                  <span className="self-start font-medium">
-                                    {choiceLetter}.
-                                  </span>
                                   <span>{choice}</span>
                                 </div>
                               </div>
