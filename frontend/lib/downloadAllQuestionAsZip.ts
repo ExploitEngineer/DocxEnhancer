@@ -101,13 +101,11 @@ export async function downloadAllQuestionsAsZip(
       }),
     );
 
-    gpt.options.forEach((option: string, i: number) => {
-      const letter = String.fromCharCode(65 + i);
+    gpt.options.forEach((option: string) => {
       content.push(
         new Paragraph({
           children: [
             new TextRun({
-              text: `${letter}. `,
               bold: true,
               color: BLACK_COLOR,
             }),
