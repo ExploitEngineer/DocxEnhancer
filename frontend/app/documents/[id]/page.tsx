@@ -151,8 +151,7 @@ export default function BatchDetailPage({
             console.warn("Failed to parse gptResponse:", err);
           }
 
-          const correctLetters =
-            gptData?.answer.trim().toUpperCase());
+          const correctLetters = gptData?.answer?.trim().toUpperCase();
 
           return (
             <Card key={question._id}>
