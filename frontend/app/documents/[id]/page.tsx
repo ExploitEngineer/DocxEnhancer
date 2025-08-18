@@ -151,7 +151,7 @@ export default function BatchDetailPage({
             console.warn("Failed to parse gptResponse:", err);
           }
 
-          const correctLetters = gptData?.answer?.trim().toUpperCase();
+          const correctLetters = gptData?.answer?.trim().toUpperCase() || "";
 
           return (
             <Card key={question._id}>
@@ -194,13 +194,13 @@ export default function BatchDetailPage({
                         </div>
                       )}
 
-                    {correctLetters.length > 0 && (
+                    {correctLetters && (
                       <div className="rounded-lg border border-green-200 bg-green-50 p-3">
                         <p className="mb-1 text-sm font-semibold text-green-900">
                           Correct Answer:
                         </p>
                         <p className="text-sm text-green-800">
-                          {correctLetters.join(", ")}
+                          {correctLetters}
                         </p>
                       </div>
                     )}
