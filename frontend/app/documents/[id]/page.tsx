@@ -152,8 +152,7 @@ export default function BatchDetailPage({
           }
 
           const correctLetters =
-            gptData?.answer
-              .map((char) => char.trim().toUpperCase());
+            gptData?.answer.trim().toUpperCase());
 
           return (
             <Card key={question._id}>
