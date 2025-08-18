@@ -153,7 +153,6 @@ export default function BatchDetailPage({
 
           const correctLetters =
             gptData?.answer
-              ?.split("")
               .map((char) => char.trim().toUpperCase());
 
           return (
