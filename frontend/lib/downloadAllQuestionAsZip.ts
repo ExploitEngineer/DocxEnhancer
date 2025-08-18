@@ -174,7 +174,7 @@ export async function downloadAllQuestionsAsZip(
           new Paragraph({
             children: [
               new TextRun({
-                text: `"${quote.quote}"`,
+                text: `${quote.quote}`,
                 bold: true,
                 italics: true,
                 color: BLACK_COLOR,
