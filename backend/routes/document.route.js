@@ -463,7 +463,7 @@ router.post("/upload", upload.single("file"), async (req, res) => {
 });
 
 router.get("/", async (_, res) => {
-  const docs = await DocumentModel.find().sort({ date: -1 });
+  const docs = await DocumentModel.find({}).sort({ date: -1 });
   res.json(docs);
 });
 
