@@ -12,8 +12,8 @@ export function parseXlsxRows(buffer) {
   // Step 2: Filter out completely empty rows
   const rows = rawRows.filter((row) =>
     Object.values(row).some(
-      (cell) => cell !== "" && cell !== null && cell !== undefined
-    )
+      (cell) => cell !== "" && cell !== null && cell !== undefined,
+    ),
   );
 
   console.log("Total valid rows after filtering:", rows.length);
@@ -30,7 +30,7 @@ export function parseXlsxRows(buffer) {
         console.warn(
           `⚠️ Skipping row ${
             rowIndex + 2
-          } - missing 'Question' field. Value: "${row["Question"]}"`
+          } - missing 'Question' field. Value: "${row["Question"]}"`,
         );
         return null;
       }
@@ -38,7 +38,7 @@ export function parseXlsxRows(buffer) {
         console.warn(
           `⚠️ Skipping row ${rowIndex + 2} - missing 'Options' field. Value: "${
             row["Options"]
-          }"`
+          }"`,
         );
         return null;
       }
@@ -46,7 +46,7 @@ export function parseXlsxRows(buffer) {
         console.warn(
           `⚠️ Skipping row ${rowIndex + 2} - missing 'Answer' field. Value: "${
             row["Answer"]
-          }"`
+          }"`,
         );
         return null;
       }
@@ -60,7 +60,7 @@ export function parseXlsxRows(buffer) {
         console.warn(
           `⚠️ Skipping row ${
             rowIndex + 2
-          } - invalid or too few options in 'Options' field. Value: "${optionsText}"`
+          } - invalid or too few options in 'Options' field. Value: "${optionsText}"`,
         );
         return null;
       }

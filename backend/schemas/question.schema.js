@@ -16,10 +16,6 @@ const questionSchema = new mongoose.Schema({
       options: [String],
       answer: String,
       explanation: {
-        quote: {
-          quote: String,
-          citation: String,
-        },
         paragraph: String,
         option_breakdown: [
           {
