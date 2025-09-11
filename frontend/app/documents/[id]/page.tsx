@@ -211,12 +211,6 @@ export default function BatchDetailPage({
                           <p className="mb-1 text-sm font-semibold text-blue-900">
                             Explanation:
                           </p>
-                          <p className="mb-1 text-sm font-semibold text-blue-900">
-                            {gptData.explanation.quote.quote}
-                          </p>
-                          <p className="mb-1 text-sm font-semibold text-blue-900">
-                            {gptData.explanation.quote.citation}
-                          </p>
                           <p className="whitespace-pre-line text-sm text-blue-800">
                             {gptData.explanation.paragraph}
                           </p>
