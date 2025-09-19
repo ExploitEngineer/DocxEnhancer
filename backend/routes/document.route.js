@@ -463,8 +463,20 @@ router.post("/upload", upload.single("file"), async (req, res) => {
 });
 
 router.get("/", async (_, res) => {
-  const docs = await DocumentModel.find({}).sort({ date: -1 });
-  res.json(docs);
+  console.log("fetching documents");
+  try {
+    const docs = await DocumentModel.find({})
+      .sort({ date: -1 })
+      .select("-questions");
+
+    if (docs.length === 0) {
+      return res.status(404).json({ message: "No documents found" });
+    }
+    return res.json(docs);
+  } catch (err) {
+    console.log(err.message);
+    return res.status(500).json({ error: "Server error" });
+  }
 });
 
 router.get("/:id", async (req, res) => {

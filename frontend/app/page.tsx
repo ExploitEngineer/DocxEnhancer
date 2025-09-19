@@ -113,10 +113,13 @@ export default function DocumentPage() {
       formData.append("file", file);
       formData.append("prompt", prompt);
 
-      const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/documents/upload`, {
-        method: "POST",
-        body: formData,
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_URL}/documents/upload`,
+        {
+          method: "POST",
+          body: formData,
+        },
+      );
 
       if (!res.ok) {
         const errData = await res.json().catch(() => ({}));
@@ -142,7 +145,9 @@ export default function DocumentPage() {
 
   const handleDownload = async (docId: string) => {
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/documents/${docId}`);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_URL}/documents/${docId}`,
+      );
       if (!res.ok) throw new Error("Failed to fetch questions");
 
       const fullDoc = await res.json();
@@ -208,7 +213,7 @@ export default function DocumentPage() {
                 <TableHead>Actions</TableHead>
               </TableRow>
             </TableHeader>
-            <TableBody>
+            <TableBody className="relative">
               {documents.map((doc) => (
                 <TableRow key={doc._id}>
                   <TableCell className="font-medium">{doc.filename}</TableCell>
